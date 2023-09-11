@@ -1,0 +1,6 @@
+<div class="general__container">
+  <app-nav-bar></app-nav-bar>
+  <div [@routeAnimations]="getAnimationState(o)">
+    <router-outlet #o="outlet"></router-outlet>
+  </div>
+</div>
