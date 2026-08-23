@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class NavBarComponent implements OnInit {
 
+  isOpen: boolean = false;
+
   constructor(
     private router: Router
   ) { }
@@ -15,7 +17,17 @@ export class NavBarComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onChangeView(view: string){
+  toggleNav(): void {
+    this.isOpen = !this.isOpen;
+  }
+
+  closeNav(): void {
+    this.isOpen = false;
+  }
+
+  onChangeView(view: string): void {
+    this.closeNav(); // Cierra el menú al seleccionar una opción
+
     switch (view) {
       case '00':
         this.router.navigate(['home']);
@@ -30,7 +42,7 @@ export class NavBarComponent implements OnInit {
         this.router.navigate(['experience']);
         break;
       case '04':
-        this.router.navigate(['contact']);
+        this.router.navigate(['projects']);
         break;
       default:
         break;

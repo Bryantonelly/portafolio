@@ -1,0 +1,115 @@
+.title p {
+  box-sizing: border-box;
+  font-size: 80px;
+  font-style: italic;
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 3rem 0;
+}
+
+/* Grid Bento ocupando el 100% del ancho disponible */
+.skills__grid {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.75rem;
+  box-sizing: border-box;
+}
+
+/* Tarjeta técnica */
+.skill__card {
+  width: 100%;
+  background: #ffffff;
+  border: 1px solid #111;
+  padding: 2rem 1.75rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  position: relative;
+}
+
+.skill__card:hover {
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 0px #111;
+}
+
+/* Encabezado del módulo */
+.card__top {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1rem;
+}
+
+.card__number {
+  font-size: 26px;
+  font-weight: 700;
+  color: var(--primary-color);
+  line-height: 1;
+}
+
+.card__title {
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #111;
+  margin: 0;
+}
+
+/* Badges / Tags estructurados */
+.card__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 600;
+  color: #222;
+  border: 1px solid #ddd;
+  background: #fafafa;
+  padding: 6px 12px;
+  border-radius: 2px;
+  transition: all 0.2s ease;
+}
+
+.skill__card:hover .tag {
+  border-color: #111;
+}
+
+.tag:hover {
+  background: #111 !important;
+  color: #ffffff !important;
+  border-color: #111 !important;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .title p {
+    font-size: 50px;
+  }
+}
+
+@media (max-width: 600px) {
+  .skills__grid {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+
+  .skill__card {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .card__title {
+    font-size: 14px;
+  }
+}

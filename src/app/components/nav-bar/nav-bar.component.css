@@ -1,4 +1,4 @@
-.navbar__container{
+.navbar__container {
   width: var(--navbar-width);
   background: var(--primary-color);
   height: 100vh;
@@ -9,67 +9,83 @@
   flex-direction: column;
   transition: all 1s;
 }
-.navbar__container:hover{
-  padding-right: 50vh;
-  border-radius: 0 50vh 50vh 0;
-  background: var(--verde-color);
-  color: #ffffff;
+
+/* Solo se activa en computadoras con mouse real, evitando que se quede pegado en celulares */
+@media (hover: hover) {
+  .navbar__container:hover {
+    padding-right: 50vh;
+    border-radius: 0 50vh 50vh 0;
+    background: var(--verde-color);
+    color: #ffffff;
+  }
+  .navbar__container:hover .navbar__iconbox p {
+    color: #ffffff;
+  }
 }
-.navbar__container:hover .navbar__iconbox p{
-  color: #ffffff;
-}
-.navbar__iconclose{
+
+.navbar__iconclose {
   display: none;
 }
-.navbar__iconbox{
+
+.navbar__iconbox {
   position: relative;
   padding: 10px;
   font-size: 20px;
   cursor: pointer;
   transition: all .5s;
 }
-.navbar__iconbox:nth-child(4){
+
+.navbar__iconbox:nth-child(4) {
   margin: 30px 0;
 }
 
-.navbar__iconbox:hover{
-  font-size: 25px;
+@media (hover: hover) {
+  .navbar__iconbox:hover {
+    font-size: 25px;
+  }
+  .navbar__iconbox:hover p {
+    display: block;
+    font-size: 33px;
+    transition: all .8s;
+  }
 }
-.navbar__iconbox p{
+
+.navbar__iconbox p {
   display: none;
   font-size: 30px;
   position: absolute;
   color: #ffffff;
-  /* color: var(--primary-color); */
   top: 4px;
   left: 80px;
   z-index: 1000;
 }
-.navbar__iconbox:hover p{
-  display: block;
-  font-size: 33px;
-  transition: all .8s;
+
+/* Comportamiento exclusivo para móvil controlado por la clase .is-open */
+.navbar__container.is-open {
+  padding-right: calc(100vw - var(--navbar-width));
+  border-radius: 0;
+  background: var(--verde-color);
+  color: #ffffff;
 }
 
-@media ( max-width: 600px ) {
-  .navbar__container:hover{
-    padding-right: calc( 100vw - var(--navbar-width) );
-    border-radius: 0;
-    background: var(--verde-color);
-    color: #ffffff;
-  }
-  .navbar__container:hover .navbar__iconclose{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #5f5f5f;
-    position: absolute;
-    background: #ffffff;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    margin: 10px;
-    border-radius: 50%;
-  }
+.navbar__container.is-open .navbar__iconclose {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #5f5f5f;
+  position: absolute;
+  background: #ffffff;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 40px;
+  margin: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.navbar__container.is-open .navbar__iconbox p {
+  display: block;
+  color: #ffffff;
 }

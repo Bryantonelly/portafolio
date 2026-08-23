@@ -1,0 +1,54 @@
+<div class="container__pages">
+  <div class="title">
+    <p>Experience</p>
+  </div>
+
+  <div class="experience__container">
+    <div 
+      class="experience__card" 
+      *ngFor="let exp of experiences" 
+      (click)="toggleCardFlip(exp)" 
+      [class.flipped]="exp.isFlipped">
+      
+      <div class="card__inner">
+        
+        <!-- FRENTE -->
+        <div class="card__face card__front">
+          <div class="card__number">{{ exp.number }}</div>
+          <div class="card__header">
+            <p class="card__role">{{ exp.role }}</p>
+            <p class="card__company">{{ exp.company }}</p>
+            <p class="card__period">{{ exp.period }}</p>
+          </div>
+          <div class="card__summary">
+            <p>{{ exp.summary }}</p>
+          </div>
+          <div class="card__tags">
+            <span *ngFor="let tag of exp.tags">{{ tag }}</span>
+          </div>
+          <div class="card__hint">
+            <p>Hover / Click to flip ↻</p>
+          </div>
+        </div>
+
+        <!-- REVERSO -->
+        <div class="card__face card__back">
+          <div class="card__header">
+            <p class="card__title-back">{{ exp.backTitle }}</p>
+            <p class="card__company-back">{{ exp.backSubtitle }}</p>
+          </div>
+          <div class="card__details">
+            <p *ngFor="let item of exp.achievements">
+              <strong *ngIf="item.label">{{ item.label }} </strong>
+              {{ item.text }}
+            </p>
+          </div>
+          <div class="card__hint">
+            <p>Click to return ↺</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

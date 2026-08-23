@@ -1,4 +1,4 @@
-.title p{
+.title p {
   box-sizing: border-box;
   font-size: 80px;
   font-style: italic;
@@ -6,7 +6,8 @@
   width: 100%;
   text-align: center;
 }
-.home__container{
+
+.home__container {
   width: 100%;
   height: 100%;
   display: flex;
@@ -16,38 +17,98 @@
   overflow-y: hidden;
   overflow-x: scroll;
 }
-.home__img{
-  width: 40%;
+
+.home__img {
+  width: 35%;
 }
-.home__img img{
+
+.home__img img {
   width: 100%;
   height: auto;
 }
-.home__text{
+
+.home__text {
   width: 50%;
 }
-.home__text p:nth-child(1){
+
+.home__text p:nth-child(1) {
   font-size: 100px;
   color: var(--primary-color);
 }
-.home__text p:nth-child(2){
+
+.home__text p:nth-child(2) {
   font-size: 200px;
   line-height: 150px;
 }
 
+/* Sección de enlaces de contacto */
+.home__contact {
+  margin-top: 4rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.home__contact a,
+.home__contact .btn__email {
+  color: #111;
+  text-decoration: none;
+  font-weight: 600;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+  text-transform: inherit;
+  transition: color 0.2s ease;
+}
+
+.home__contact a:hover,
+.home__contact .btn__email:hover {
+  color: var(--primary-color);
+}
+
+.home__contact span {
+  color: #bbb;
+}
+
+.home__contact .location {
+  color: #666;
+  font-weight: 500;
+}
+
 @media (max-width: 1000px) {
-  .home__text p:nth-child(1){
+  .home__text p:nth-child(1) {
     font-size: 50px;
     color: var(--primary-color);
   }
-  .home__text p:nth-child(2){
+  .home__text p:nth-child(2) {
     font-size: 100px;
     line-height: 90px;
   }
+  .home__contact {
+    margin-top: 1.25rem;
+    font-size: 11px;
+  }
 }
+
 @media (max-width: 600px) {
   .home__img,
-  .home__text{
+  .home__text {
     width: 100%;
+  }
+  .home__contact {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+  }
+  .home__contact span:not(.location) {
+    display: none;
   }
 }

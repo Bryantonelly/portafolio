@@ -12,4 +12,9 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  openEmail(): void {
+    const user = 'bryan.antonelly.villegas.cuba';
+    const domain = 'gmail.com';
+    window.location.href = `mailto:${user}@${domain}`;
+  }
 }

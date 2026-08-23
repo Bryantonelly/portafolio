@@ -1,6 +1,7 @@
-<div class="navbar__container">
+<div class="navbar__container" [class.is-open]="isOpen">
 
-  <div class="navbar__iconclose">
+  <!-- Botón de Cerrar (X) -->
+  <div class="navbar__iconclose" (click)="closeNav(); $event.stopPropagation()">
     <i class="fa-solid fa-x"></i>
   </div>
 
@@ -10,8 +11,8 @@
   </div>
 
   <div class="navbar__iconbox" (click)="onChangeView('04')">
-    <i class="fa-solid fa-phone"></i>
-    <p>CONTACT</p>
+    <i class="fa-solid fa-suitcase"></i>
+    <p>PROJECTS</p>
   </div>
 
   <div class="navbar__iconbox" (click)="onChangeView('00')">

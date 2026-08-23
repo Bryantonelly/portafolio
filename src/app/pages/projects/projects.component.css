@@ -1,0 +1,194 @@
+/* Quita el width recortado y deja que herede el tamaño natural de tu container global */
+.title p {
+  box-sizing: border-box;
+  font-size: 80px;
+  font-style: italic;
+  font-weight: 400;
+  width: 100%;
+  text-align: center;
+  margin: 0 0 3rem 0;
+}
+
+/* 1. Ocupar el 100% sin tope de 1050px */
+.projects__list {
+  width: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+}
+
+/* 2. La fila debe medir el 100% (NO calc 100% - 80px) */
+.project__row {
+  width: 100%;
+  border-top: 1px solid #111;
+  padding: 2rem 1.5rem;
+  box-sizing: border-box;
+  cursor: pointer;
+  background: #ffffff;
+  transition: all 0.25s ease;
+}
+
+.project__row:last-child {
+  border-bottom: 1px solid #111;
+}
+
+.project__row:hover,
+.project__row.active {
+  background: #fafafa;
+  padding-left: 2.25rem;
+}
+
+.project__row.active {
+  border-left: 6px solid var(--primary-color);
+}
+
+/* Encabezado de la Fila */
+.row__main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  width: 100%;
+}
+
+.row__number {
+  font-size: 38px;
+  font-weight: 700;
+  color: var(--primary-color);
+  min-width: 55px;
+  line-height: 1;
+}
+
+.row__info {
+  flex-grow: 1;
+}
+
+.row__category {
+  display: block;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: #777;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.row__title {
+  font-size: 26px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.row__action .row__icon {
+  font-size: 32px;
+  font-weight: 300;
+  color: #111;
+  line-height: 1;
+}
+
+/* Detalles desplegables */
+.row__details {
+  margin-top: 1.5rem;
+  padding-left: calc(55px + 2rem);
+  animation: fadeIn 0.3s ease;
+}
+
+.details__desc {
+  font-size: 15px;
+  line-height: 1.6;
+  color: #444;
+  margin: 0 0 1.5rem 0;
+  max-width: 900px;
+}
+
+.details__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.details__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.details__tags span {
+  font-size: 11px;
+  font-weight: 600;
+  border: 1px solid #111;
+  padding: 4px 9px;
+  background: #ffffff;
+}
+
+.details__links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.details__links a {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #111;
+  text-decoration: none;
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 2px;
+  transition: opacity 0.2s ease;
+}
+
+.details__links a:hover {
+  opacity: 0.65;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .title p {
+    font-size: 50px;
+  }
+
+  .row__title {
+    font-size: 20px;
+  }
+
+  .row__number {
+    font-size: 28px;
+    min-width: 40px;
+  }
+
+  .row__details {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .project__row {
+    padding: 1.25rem 1rem;
+  }
+
+  .project__row:hover,
+  .project__row.active {
+    padding-left: 1rem;
+  }
+
+  .details__footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

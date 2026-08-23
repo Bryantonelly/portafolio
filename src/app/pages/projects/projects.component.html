@@ -1,0 +1,47 @@
+<div class="container__pages">
+  <div class="title">
+    <p>Projects</p>
+  </div>
+
+  <div class="projects__list">
+    <div 
+      class="project__row" 
+      *ngFor="let proj of projects; let i = index"
+      [class.active]="activeProjectIndex === i"
+      (click)="toggleProject(i)">
+      
+      <!-- Fila principal visible -->
+      <div class="row__main">
+        <span class="row__number">{{ proj.number }}</span>
+        <div class="row__info">
+          <span class="row__category">{{ proj.category }}</span>
+          <h3 class="row__title">{{ proj.title }}</h3>
+        </div>
+        <div class="row__action">
+          <span class="row__icon">{{ activeProjectIndex === i ? '−' : '+' }}</span>
+        </div>
+      </div>
+
+      <!-- Panel desplegable con detalles y enlaces -->
+      <div class="row__details" *ngIf="activeProjectIndex === i">
+        <p class="details__desc">{{ proj.description }}</p>
+        
+        <div class="details__footer">
+          <div class="details__tags">
+            <span *ngFor="let tag of proj.tags">{{ tag }}</span>
+          </div>
+
+          <div class="details__links">
+            <a *ngIf="proj.githubUrl" [href]="proj.githubUrl" target="_blank" rel="noopener noreferrer" (click)="$event.stopPropagation()">
+              Source Code ↗
+            </a>
+            <a *ngIf="proj.liveUrl" [href]="proj.liveUrl" target="_blank" rel="noopener noreferrer" (click)="$event.stopPropagation()">
+              Live Website ↗
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

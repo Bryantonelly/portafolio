@@ -21,8 +21,8 @@
 }
 
 .container__pages{
-  margin-left: var(--navbar-width);
-  width: calc( 100vw - var(--navbar-width) );
+  margin-left: 80px;
+  width: calc( 100vw - 80px );
   height: 100vh;
   max-height: 100vh;
   overflow-y: scroll;
